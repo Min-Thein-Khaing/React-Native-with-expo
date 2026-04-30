@@ -8,7 +8,7 @@ export default function HomeScreen() {
   const router = useRouter();
   return (
     <View style={[styles.container, { backgroundColor: colorScheme === "dark" ? "#151718" : "#fff" }]}>
-      <Link href="/setting" asChild><Button title="Go to setting" /></Link>
+      <Link href="/settings/Mg Mg" asChild><Button title="Go to setting" /></Link>
       <Button title="Go to Detail" onPress={() => router.navigate({ pathname: "/detail", params: { id: 1 } })} color="green" />
     </View>
   );
