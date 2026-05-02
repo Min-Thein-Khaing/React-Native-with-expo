@@ -5,6 +5,7 @@ const HomeLayout = () => {
     <Stack>
         <Stack.Screen name="index" />
         <Stack.Screen name="detail" />
+        <Stack.Screen name="event" />
     </Stack>
   )
 }

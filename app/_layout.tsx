@@ -25,12 +25,29 @@ export default function RootLayout() {
   if (!loaded && !error) {
     return null;
   }
+  const isLogin = true;
+  const isAdmin = false ;
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         {/* <Stack.Screen name="index" /> */}
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+        
+        {/* <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} /> */}
+
+
+        {/* testing protect route  */}
+        <Stack.Protected guard={!isLogin}>
+          <Stack.Screen name="login" />
+        </Stack.Protected>
+
+        <Stack.Protected guard={isLogin}>
+          
+          <Stack.Screen name="testing" />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Protected guard={isAdmin}>
+            <Stack.Screen name="profile" />
+          </Stack.Protected>
+        </Stack.Protected>
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
