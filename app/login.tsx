@@ -1,12 +1,14 @@
-import { View, Text } from 'react-native'
-import React from 'react'
 import { Link } from 'expo-router'
+import React from 'react'
+import { Text, View } from 'react-native'
 
 const Login = () => {
   return (
     <View>
       <Text>login</Text>
-      <Link href="/testing">Go to testing</Link>
+      <Link href="/testing">
+        <Text>Go to testing</Text>
+      </Link>
     </View>
   )
 }

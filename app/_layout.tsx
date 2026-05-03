@@ -1,6 +1,7 @@
+import { CountContextProvider } from '@/hooks/provider/countContext';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { SpaceMono_400Regular, useFonts } from '@expo-google-fonts/space-mono';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -13,9 +14,10 @@ export const unstable_settings = {
 };
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  // Mono Font ကို load လုပ်ခြင်း
+  // Font များ Load လုပ်ခြင်း
   const [loaded, error] = useFonts({
-    'SpaceMono': SpaceMono_400Regular,
+    'Roboto-Italic': require('../assets/fonts/Roboto-Italic.ttf'), // <--- ဒီစာကြောင်းကို ထည့်ပါ
+    'PlaywriteNZGuides-Regular': require('../assets/fonts/PlaywriteNZGuides-Regular.ttf'), // <--- ဒီစာကြောင်းကို ထည့်ပါ
   });
   useEffect(() => {
     if (loaded || error) {
@@ -26,29 +28,32 @@ export default function RootLayout() {
     return null;
   }
   const isLogin = true;
-  const isAdmin = false ;
+  const isAdmin = false;
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        {/* <Stack.Screen name="index" /> */}
-        
-        {/* <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} /> */}
+      <CountContextProvider>
+        <Stack>
+          {/* <Stack.Screen name="index" /> */}
+
+          {/* <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} /> */}
 
 
-        {/* testing protect route  */}
-        <Stack.Protected guard={!isLogin}>
-          <Stack.Screen name="login" />
-        </Stack.Protected>
-
-        <Stack.Protected guard={isLogin}>
-          
-          <Stack.Screen name="testing" />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Protected guard={isAdmin}>
-            <Stack.Screen name="profile" />
+          {/* testing protect route  */}
+          <Stack.Protected guard={!isLogin}>
+            <Stack.Screen name="login" />
           </Stack.Protected>
-        </Stack.Protected>
-      </Stack>
+
+          <Stack.Protected guard={isLogin}>
+
+            <Stack.Screen name="testing" />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Protected guard={isAdmin}>
+              <Stack.Screen name="profile" />
+            </Stack.Protected>
+          </Stack.Protected>
+        </Stack>
+      </CountContextProvider>
+
       <StatusBar style="auto" />
     </ThemeProvider>
   );

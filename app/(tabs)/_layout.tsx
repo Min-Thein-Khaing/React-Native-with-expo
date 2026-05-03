@@ -8,7 +8,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const admin= true ;
+  const admin = true;
 
   return (
     <Tabs
@@ -39,13 +39,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Protected guard={admin}>
-      <Tabs.Screen
-        name="(profile)"
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.crop.circle.fill" color={color} />,
-        }}
-      />
+        <Tabs.Screen
+          name="(profile)"
+          options={{
+            title: 'Profile',
+            tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.crop.circle.fill" color={color} />,
+          }}
+        />
       </Tabs.Protected>
     </Tabs>
   );

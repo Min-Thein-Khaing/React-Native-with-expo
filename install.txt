@@ -1,0 +1,20 @@
+adb shell "cmd uimod night yes"
+
+
+
+
+//knowledge 
+1.temporary store data for one component(useState)
+2.temporary store data for multiple component(useContext , redux,zustand)
+
+
+3.persistent store small data without encrypt(AsyncStorage,mmkv)  //6kb
+ npx expo install @react-native-async-storage/async-storage
+
+
+4.persistent store small data without encrypt(SecureStore,MMKV encrypted) //2KB only not greater
+ npx expo install expo-secure-store
+
+
+
+5.persistent store large data in database (sqlite,realm)  
