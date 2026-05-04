@@ -10,8 +10,8 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "config":{
-        "usesNonExemptEncryption":false
+      "config": {
+        "usesNonExemptEncryption": false
       }
     },
     "android": {
@@ -71,6 +71,7 @@
       "eas": {
         "projectId": "97e1aaf9-15a6-4588-94e3-d5500bab2cad"
       }
-    }
+    },
+    "owner": "mintheinkhaing"
   }
 }

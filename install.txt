@@ -11,6 +11,8 @@ adb shell "cmd uimod night yes"
 3.persistent store small data without encrypt(AsyncStorage,mmkv)  //6kb
  npx expo install @react-native-async-storage/async-storage
 
+mmkv install command
+npx expo install react-native-mmkv-storage
 
 4.persistent store small data without encrypt(SecureStore,MMKV encrypted) //2KB only not greater
  npx expo install expo-secure-store
