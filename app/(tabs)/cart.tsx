@@ -13,7 +13,7 @@ const Cart = () => {
       <ScrollView>
       <CustomText >cart</CustomText>
       <CustomText style={{fontFamily:"PlaywriteNZGuides-Regular"}} >Welcome to Thailand, Myanamar</CustomText>
-      <Image source={require("@/assets/images/screen_shot.png")} style={{width:200,height:200}} />
+      <Image source={{uri:"screen_shot"}} style={{width:200,height:200}} />
       <Image source={require("@/assets/images/react-logo.png")} style={{width:200,height:200}} />
       <Image contentFit='cover' source={{uri:"https://reqres.in/img/faces/7-image.jpg"}} style={{width:200,height:400 ,backgroundColor:'green'}} />
       </ScrollView>
